@@ -1,0 +1,16 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="JavaEEProject:war">
+    <output-path>$PROJECT_DIR$/target</output-path>
+    <properties id="maven-jee-properties">
+      <options>
+        <exploded>false</exploded>
+        <module>JavaEEProject</module>
+        <packaging>war</packaging>
+        <unpackNestedArchives>false</unpackNestedArchives>
+      </options>
+    </properties>
+    <root id="archive" name="JavaEEProject-1.0-SNAPSHOT.war">
+      <element id="artifact" artifact-name="JavaEEProject:war exploded" />
+    </root>
+  </artifact>
+</component>

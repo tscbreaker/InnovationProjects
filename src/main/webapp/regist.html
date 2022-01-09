@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="GBK">
+    <title>学生注册</title>
+    <style>
+        body {
+            background-color: lightblue;
+            margin-bottom: 50px;
+        }
+        input[type=text],input[type=password] {
+            border: 1px solid black;
+            padding: 10px 10px;
+            border-radius: 3px;
+            width: 100%;
+        }
+        input:focus {
+            background-color: lightblue;
+        }
+        .background {
+            margin: auto;
+            width: 400px;
+            height: 550px;
+            border: 3px solid #73AD21;
+            background: lightgoldenrodyellow;
+            border-radius: 10px;
+        }
+        .form123 {
+            padding: 20px 10px 0px 60px;
+            text-align: center;
+        }
+        footer {
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            height: 48px;
+        }
+        html {
+            position: relative;
+            min-height: 100%;
+            overflow-x: hidden;
+        }
+        .radio-box{
+            float: left;
+        }
+    </style>
+    <script src="js/jquery-3.3.1.js"></script>
+    <script>
+        function checkPassword() {
+            var password = $("#password").val();
+            var reg_password = /^\w{8,20}$/;
+            var flag = reg_password.test(password);
+            if(flag){
+                $("#password").css("border","");
+                $("#errorMsg").html(null);
+            }else{
+                $("#password").css("border","1px solid red");
+                $("#errorMsg").html("密码长度8到20位");
+            }
+
+            return flag;
+        }
+        $(function () {
+            $("#registerForm").submit(function(){
+                if(checkPassword()){
+                    $.post("registServlet",$(this).serialize(),function(data){
+                        if(data.flag){
+                            location.href="login.html";
+                        }else{
+                            $("#errorMsg").html(data.errorMsg);
+                        }
+                    });
+                }
+                return false;
+            });
+            $("#password").blur(checkPassword);
+        });
+        $("#window-header").load("header.html")
+    </script>
+</head>
+<body>
+<div id="header"></div>
+<div class="background" style="margin-top: 10px">
+    <h2 style="text-align: center">学生注册</h2>
+    <p id="errorMsg" style="color:#ff0000;text-align: center;padding-top: 0px;padding-bottom: 0px"></p>
+    <form id="registerForm" action="" class="form123">
+        <input type="hidden" name="action" value="register">
+        <table>
+            <tr>
+                <td>
+                    <label for="stu_id">学号/工号</label>
+                </td>
+                <td>
+                    <input type="text" id="stu_id" name="stu_id" placeholder="请输入学号/工号">
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label for="password">密码</label>
+                </td>
+                <td>
+                    <input type="password" id="password" name="password" placeholder="请输入密码">
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label for="name">姓名</label>
+                </td>
+                <td>
+                    <input type="text" id="name" name="name" placeholder="请输入姓名">
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label for="sex">性别</label>
+                </td>
+                <td>
+                    <input type="radio" id="sex" name="sex" value="男" checked> 男
+                    <input type="radio" name="sex" value="女"> 女
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label for="stu_mail">Email</label>
+                </td>
+                <td>
+                    <input type="text" id="stu_mail" name="stu_mail" placeholder="请输入Email">
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label for="academy">学院</label>
+                </td>
+                <td>
+                    <input type="text" id="academy" name="academy" placeholder="请输入学院">
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label for="check">验证码</label>
+                </td>
+                <td>
+                    <input type="text" id="check" name="check">
+                </td>
+            </tr>
+            <tr>
+                <td>
+                </td>
+                <td>
+                    <img src="checkCode" height="32px" alt="" onclick="changeCheckCode(this)">
+                    <script type="text/javascript">
+                        function changeCheckCode(img) {
+                            img.src="checkCode?"+new Date().getTime();
+                        }
+                    </script>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                </td>
+                <td>
+                    <div style="margin-left: 15px">
+                        <div class="radio-box">
+                            <input type="radio" id="radio-1" name="type" checked value="1" />
+                            <label for="radio-1">学生</label>
+                        </div>
+                        <div class="radio-box">
+                            <input type="radio" id="radio-2" name="type" value="2" />
+                            <label for="radio-2">导师</label>
+                        </div>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                </td>
+                <td>
+                    <input type="submit" style="width: 80px" value="注册">
+                </td>
+            </tr>
+        </table>
+</form>
+    <p style="text-align: center">
+    已有账号？
+    <a href="login.html">立即登录</a>
+    </p>
+</div>
+<div id="footer"></div>
+<script type="text/javascript" src="js/include.js"></script>
+</body>
+</html>

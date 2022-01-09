@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="GBK">
+    <title>学校管理员页面</title>
+    <style>
+        footer {
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            height: 48px;
+        }
+        html {
+            position: relative;
+            min-height: 100%;
+            overflow-x: hidden;
+        }
+        body {
+            background-color: lightblue;
+            margin-bottom: 50px;
+        }
+        .item2 ul li ul{
+            display: none;
+        }
+        .userMenu {
+        }
+        .grid-container {
+            display: grid;
+            grid-template-areas:
+                'header header header header header header header header header'
+                'menu main main main main main main main main'
+                'footer footer footer footer footer footer footer footer footer';
+            background-color: lightblue;
+        }
+        .grid-container > div {
+            background-color:lightblue;
+        }
+        .item4{
+            grid-area: footer;
+        }
+        .item3{
+            grid-area: main;
+        }
+        .item2{
+            grid-area: menu;
+        }
+        .item1 {
+            grid-area: header;
+        }
+        .fir{
+            font-weight: bold;
+        }
+    </style>
+    <script src="js/jquery-1.11.0.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="js/include.js"></script>
+
+    <script src="https://cdn.bootcss.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+    <script src="https://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+    <script src="js/jquery-3.3.1.js"></script>
+</head>
+<body>
+<div class="grid-container">
+    <div id="header" class="item1"></div>
+    <div class="item2">
+        <ul>
+            <li class="fir">项目管理</li>
+            <li><a href="nation_project.jsp" target="main_frame">国创</a></li>
+            <li><a href="province_project.jsp" target="main_frame">省创</a></li>
+            <li><a href="school_project.jsp" target="main_frame">校级SRTP</a></li>
+            <li><a href="academy_project.jsp" target="main_frame">院级SRTP</a></li>
+        </ul>
+        <ul>
+            <li class="fir">基础数据管理</li>
+            <li><a href="academy_table.jsp" target="main_frame">院级管理员管理</a></li>
+            <li><a href="teacher_table_sch.jsp" target="main_frame">导师管理</a></li>
+            <li><a href="student_table_sch.jsp" target="main_frame">学生管理</a></li>
+        </ul>
+        <ul>
+            <li class="fir">系统公告管理</li>
+            <li><a href="notice_edit.jsp" target="main_frame">系统公告管理</a></li>
+        </ul>
+    </div>
+    <div class="item3">
+        <iframe name="main_frame" src="notice.jsp" frameborder="0" scrolling="yes" width=100% height="600"></iframe>
+    </div>
+    <div id="footer" class="item4"></div>
+</div>
+</body>
+</html>

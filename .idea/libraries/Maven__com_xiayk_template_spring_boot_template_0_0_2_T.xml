@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="Maven: com.xiayk.template:spring-boot-template:0.0.2.T">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/../../apache-maven-3.5.2/mvn_repository/com/xiayk/template/spring-boot-template/0.0.2.T/spring-boot-template-0.0.2.T.jar!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$PROJECT_DIR$/../../apache-maven-3.5.2/mvn_repository/com/xiayk/template/spring-boot-template/0.0.2.T/spring-boot-template-0.0.2.T-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$PROJECT_DIR$/../../apache-maven-3.5.2/mvn_repository/com/xiayk/template/spring-boot-template/0.0.2.T/spring-boot-template-0.0.2.T-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>
